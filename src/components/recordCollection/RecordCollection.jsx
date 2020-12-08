@@ -20,7 +20,7 @@ const UsersComponent = () => {
             {songs.length > 0 &&
                 <CardColumns>
                     {songs.map((song) => (
-                        <Song song={song} key={song.id} />
+                        <Song className="card" song={song} key={song.id} />
                     ))}
                 </CardColumns>
             }
