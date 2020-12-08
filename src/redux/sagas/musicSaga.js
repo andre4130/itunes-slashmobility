@@ -1,6 +1,6 @@
 import { call, put, takeEvery } from 'redux-saga/effects'
 
-const apiUrl = `https://jsonplaceholder.typicode.com/users`;
+const apiUrl = `https://itunes.apple.com/search?term=wire&media=music&entity=song&attribute=artistTerm`;
 
 // the correct form for api call is 
   // 'https://itunes.apple.com/search?term={artist}&media=music&entity=song&attribute=artistTerm'
@@ -16,17 +16,18 @@ function getApi() {
     .catch((error) => {throw error})
 }
 
-function* fetchUsers(action) {
+function* fetchMusic(action) {
    try {
-      const users = yield call(getApi);
-      yield put({type: 'GET_USERS_SUCCESS', users: users});
+      const songs = yield call(getApi);
+      yield put({type: 'GET_MUSIC_SUCCESS', songs: songs});
+      console.log("in saga", songs)
    } catch (e) {
-      yield put({type: 'GET_USERS_FAILED', message: e.message});
+      yield put({type: 'GET_MUSIC_FAILED', message: e.message});
    }
 }
 
-function* userSaga() {
-   yield takeEvery('GET_USERS_REQUESTED', fetchUsers);
+function* musicSaga() {
+   yield takeEvery('GET_MUSIC_REQUESTED', fetchMusic);
 }
 
-export default userSaga;
+export default musicSaga;

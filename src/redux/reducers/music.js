@@ -1,7 +1,7 @@
 import * as type from '../types';
 
 const initialState = {
-    music: [],
+    songs: [],
     loading: false,
     error: null,
   }
@@ -17,7 +17,7 @@ const initialState = {
         return {
           ...state,
           loading: false,
-          users: action.users
+          songs: action.songs.results
         }
       case type.GET_MUSIC_FAILED:
         return {
