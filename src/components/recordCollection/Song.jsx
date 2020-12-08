@@ -1,6 +1,7 @@
 import React, {setState, useEffect} from 'react';
 import { Card } from 'react-bootstrap';
 import heart from '../../assets/svg/heart.svg';
+import heartOutline from '../../assets/svg/heart-outline.svg';
 
 const Song = (props) => {
 
@@ -17,7 +18,7 @@ const Song = (props) => {
                 <Card.Text>
                     {props.song.collectionName}
             </Card.Text>
-                <img src={heart}  alt=""/>
+                <img src={heartOutline}  alt=""/>
             </Card.Body>
         </Card>
     );
