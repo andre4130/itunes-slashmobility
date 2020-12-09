@@ -23,10 +23,17 @@ body {
 .card {
   transition: ease 0.5s fadein;
   margin-top: 10px;
+  margin-left: 0%;
   /* padding-left: 10px;
   padding-right: 10px; */
-  height: auto;
+
 }
+
+/* .card-columns {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+} */
 
 /* Animations */
 
