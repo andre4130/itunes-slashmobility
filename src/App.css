@@ -1,10 +1,17 @@
+body {
+  background-color: black;
+  width: 100%
+}
+
+
+
 .App {
 
 }
 
-.card {
-  margin: 10px;
-}
+/* .card {
+  
+} */
 
 
 /*Song Component*/
@@ -14,7 +21,11 @@
 }
 
 .card {
-  transition: fadein ease 0.5s;
+  transition: ease 0.5s fadein;
+  margin-top: 10px;
+  /* padding-left: 10px;
+  padding-right: 10px; */
+  height: auto;
 }
 
 /* Animations */

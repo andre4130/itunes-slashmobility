@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Song from './Song';
 import { getMusic } from '../../redux/actions/artists';
@@ -14,13 +14,27 @@ const UsersComponent = () => {
         dispatch(getMusic())
     }, [])
 
+    const [fav, setFav] = useState([])
+
+    const addFav = ( props ) => {
+        let tempArray = fav;
+        tempArray.push(props)
+        console.log(tempArray)
+        setFav([...fav], [tempArray])
+        // setFav(...fav, props)
+        }
+
+    const removeFav = ( props ) => {
+        console.log('i am remove', props)
+    }
+
     return (
-        <div>
+        <div className="container-fluid">
             {loading && <p>Loading...</p>}
             {songs.length > 0 &&
                 <CardColumns>
-                    {songs.map((song) => (
-                        <Song className="card" song={song} key={song.id} />
+                    {songs.map((song, i) => (
+                        <Song className="card" song={song} key={song.id} item={i} fav={fav} addFav={addFav} removeFav={removeFav}/>
                     ))}
                 </CardColumns>
             }
