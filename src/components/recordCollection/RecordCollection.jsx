@@ -17,21 +17,24 @@ const UsersComponent = () => {
     const [fav, setFav] = useState([])
 
     const addFav = (props) => {
-        console.log("add", props)
+
+        const { artistName, trackName, trackId, artworkUrl30 } = props;
         let tempArray = fav;
-        tempArray.push(props)
+        let tempObject = {
+            artistName: artistName,
+            trackName: trackName,
+            trackId: trackId,
+            artworkUrl30: artworkUrl30
+        }
+        tempArray.push(tempObject)
         setFav([...fav], [tempArray])
-        console.log("end of add", fav)
     }
 
     const removeFav = (props) => {
-        console.log("remove props", props)
         let array = fav;
         array.map((item, i) => {
-            console.log("remove", item, i)
-            if (item === props) {
+            if (item.trackId === props.trackId) {
                 array.splice(i, 1);
-                console.log("inside if", item)
             }
             setFav([...array]);
         })
