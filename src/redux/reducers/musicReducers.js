@@ -1,4 +1,4 @@
-import * as type from '../types';
+import * as type from '../actionTypes';
 
 const initialState = {
     songs: [],
@@ -8,6 +8,11 @@ const initialState = {
   
   export default function users(state = initialState, action) {
     switch (action.type) {
+      //case type SET_MUSIC para subir al redux
+      case type.SET_MUSIC:
+        return {
+          ...state,
+        }
       case type.GET_MUSIC_REQUESTED:
         return {
           ...state,

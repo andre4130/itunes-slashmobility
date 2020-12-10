@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 
 // Components Import
@@ -9,7 +9,6 @@ import Favourites from './components/favourites/Favourites'
 function App() {
 
 
-  
   return (
     <div className="App">
       <Searchbar/>

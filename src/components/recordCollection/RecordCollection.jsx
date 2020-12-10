@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Song from './Song';
-import { getMusic } from '../../redux/actions/artists';
-import { CardColumns, CardDeck, CardGroup } from 'react-bootstrap'
+// import { getMusic } from '../../redux/actions/musicActions';
+import { CardColumns} from 'react-bootstrap'
 
-const UsersComponent = () => {
-    const dispatch = useDispatch();
-    const songs = useSelector(state => state.songs.songs);
-    const loading = useSelector(state => state.songs.loading);
-    const error = useSelector(state => state.songs.error);
+const RecordCollection = () => {
+    // const dispatch = useDispatch();
+    // const songs = useSelector(state => state.songs.songs);
+    // const loading = useSelector(state => state.songs.loading);
+    // const error = useSelector(state => state.songs.error);
 
-    useEffect(() => {
-        dispatch(getMusic())
-    }, [])
+    const {songs, loading, error} = useSelector((state)=>state);
+console.log("in record", songs, loading, error)
+    // useEffect(() => {
+    //     dispatch(getMusic())
+    // }, [])
 
+    // set favourites 
     const [fav, setFav] = useState([])
 
     const addFav = (props) => {
@@ -59,4 +62,4 @@ const UsersComponent = () => {
     );
 };
 
-export default UsersComponent;
+export default RecordCollection;
