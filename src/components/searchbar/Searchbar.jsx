@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar, FormControl, Form, Button } from 'react-bootstrap';
+import {IoIosHeart, IoIosHeartEmpty} from 'react-icons/io'
 
 import { getApi } from '../../redux/sagas/musicSaga';
 
+//Components
+import FavList from '../favourites/FavList'
 
 const Searchbar = () => {
 
@@ -39,7 +42,7 @@ const Searchbar = () => {
 
 
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar expand="lg" sticky="top">
             <Navbar.Brand href="#home">iTunes Search</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
@@ -55,6 +58,7 @@ const Searchbar = () => {
                     <Button variant="outline-secondary" onClick={(e) => searchInput(e)}>Search</Button>
                 </Form>
             </Navbar.Collapse>
+            <FavList></FavList>
         </Navbar>
     );
 };

@@ -1,5 +1,5 @@
 body {
-  background-color: black;
+  background: #FFFFFF;
   width: 100%
 }
 
@@ -9,10 +9,34 @@ body {
 
 }
 
-/* .card {
-  
-} */
+.card {
+ background-color: #444444; 
+ color: #FFFFFF;
+}
+.card img{
+  margin: 10px;
+}
 
+/*Navbar*/
+
+.navbar {
+  background-color: #444444;
+}
+
+.navbar-collapse {
+  justify-content: flex-end;
+}
+
+.navbar-light .navbar-brand{
+  color: #FFFFFF!important;
+}
+
+.heart {
+  height: 30px;
+  width: 30px;
+  color: red;
+  margin-left:5px;
+}
 
 /*Song Component*/
  .card-img {
@@ -26,14 +50,7 @@ body {
   margin-left: 0%;
   /* padding-left: 10px;
   padding-right: 10px; */
-
 }
-
-/* .card-columns {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-} */
 
 /* Animations */
 

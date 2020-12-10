@@ -5,18 +5,18 @@ export function getApi(search) {
 
    // const { artist } = search;
 
-   // console.log("in music saga", artist)
    // const apiUrl = `https://itunes.apple.com/search?term=${artist}&media=music&entity=song&attribute=artistTerm`;
    const apiUrl = `https://itunes.apple.com/search?term=wire&media=music&limit=20&entity=song&attribute=artistTerm`;
    console.log(apiUrl)
    return axios.get(apiUrl)
               .then(response => response.data)
-              .catch((error) => {throw error}) 
+              .catch((error) => {throw error})            
 }
 
 function* fetchMusic(action) {
    try {
-      const songs = yield call(getApi, action.artist);
+      const songs = yield call(getApi, action.search);
+      console.log(songs)
       yield put({type: 'GET_MUSIC_SUCCESS', songs: songs});
    } catch (e) {
       yield put({type: 'GET_MUSIC_FAILED', message: e.message});

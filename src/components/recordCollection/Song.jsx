@@ -14,7 +14,7 @@ const Song = (props) => {
         }
     }
     check()
-    
+
     return (
         <Card>
             <Card.Img className="card-img" variant="top" src={props.song.artworkUrl100} />
@@ -23,16 +23,15 @@ const Song = (props) => {
                 <Card.Text>
                     {props.song.collectionName}
             </Card.Text>
-                {/* {props.fav.includes(props.song.trackId) ?  */}
                 {isFav ? 
                 <IoIosHeart
                     onClick={() => props.removeFav(props.song)}
-                    style= {{ color: 'red' }}
+                    style= {{ color: 'red', height: "25px", width: "25px"}}
                 />
               :
                 <IoIosHeartEmpty
                     onClick={() => props.addFav(props.song)}
-                    style= {{ color: 'red' }}
+                    style= {{ color: 'red' , height: "20px", width: "20px"}}
                 />
                      }
             </Card.Body>
