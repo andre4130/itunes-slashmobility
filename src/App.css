@@ -1,38 +1,58 @@
-.App {
+body {
+  background: #FFFFFF;
+  width: 100%
+}
+
+.card {
+ background-color: #444444; 
+ color: #FFFFFF;
+}
+.card img{
+  margin: 10px;
+}
+
+/*Navbar*/
+.navbar {
+  background-color: #444444;
+}
+
+.navbar-collapse {
+  justify-content: flex-end;
+}
+
+.navbar-light .navbar-brand{
+  color: #FFFFFF!important;
+}
+
+.heart {
+  height: 30px;
+  width: 30px;
+  color: red;
+  margin-left:5px;
+}
+
+/*Record Collection*/
+.no-users {
   text-align: center;
+  top: 200px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/*Song Component*/
+ .card-img {
+ max-width: 100px;
+ max-height: 100px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card {
+  animation-name: fadeIn;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in-out;
+  margin-top: 10px;
+  margin-left: 0%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Animations */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100%   { opacity: 1; }
 }
