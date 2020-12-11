@@ -33,11 +33,11 @@ There is also the possibility to add your favourite songs to the a Favourite Lis
 
 The main screen is very simple, you just have to search for an artist. Autocomplete is not implemented in this App. The fetching will be sent to the API endpoint via Redux and Saga, and the result will be returned asynchronically. 
 
-![Main Screen](/src/assets/img/1.jpg)
+![Main Screen](/public/assets/img/1.jpg)
 
 ## Search Result
 
-![Search Result](/src/assets/img/2.jpg)
+![Search Result](/public/assets/img/2.jpg)
 
 If fetching from the API endpoints is successful, 30 songs will be shown on the main screen.
 Each song shows the artwork of the record, name of the song, record name and the possibility to add the songs to the favourites list. 
