@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 import { IoIosHeart } from 'react-icons/io'
 
 const FavList = () => {
@@ -12,16 +12,12 @@ const FavList = () => {
 
     useEffect(() => {
         var storage = JSON.parse(localStorage.getItem('favourites'));
-        console.log("before set, storage=", storage)
-        setFavourites(storage)
-        console.log("after set, favourites=", favourites, favourites.length)
+        setFavourites(storage);
     }, [show])
-
 
     return (
         <div>
             <IoIosHeart style={{ color: 'red', height: "30px", width: "30px", marginLeft: "10px" }} onClick={handleShow} />
-
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Your Favourites List</Modal.Title>
@@ -33,18 +29,15 @@ const FavList = () => {
                         :
                         <div>
                             <ul>
-                            {favourites.map(fav => (
-
-                                <div className="inline"><img src={fav.artworkUrl30} alt={fav.trackName}/> <span><b>{fav.artistName}</b></span> - <span>{fav.trackName}</span><hr/></div>
-                                
-                            ))
-                           }
+                                {favourites.map(fav => (
+                                    <div className="inline" key={fav.artistId}><img src={fav.artworkUrl30} alt={fav.trackName} /> <span><b>{fav.artistName}</b></span> - <span>{fav.trackName}</span><hr /></div>
+                                ))
+                                }
                             </ul>
                         </div>
                     }
                 </Modal.Body>
             </Modal>
-
         </div >
     );
 };

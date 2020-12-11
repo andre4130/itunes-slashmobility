@@ -2,21 +2,18 @@ import React, { useState } from 'react';
 import { Navbar, FormControl, Form, Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 
-//C
+//Redux Import
 import { getMusic } from '../../redux/actions/music';
-
 
 //Components
 import FavList from '../favourites/FavList'
 
 const Searchbar = () => {
 
-    //useState to change the state of the artist
     const [search, setSearch] = useState({
         artist: ''
     });
 
-    //this function reads the content of the input field
     const handleSearch = e => {
         setSearch({
             ...search,
@@ -30,16 +27,14 @@ const Searchbar = () => {
     const handleCall = (e) => {
         e.preventDefault();
         dispatch(getMusic(artist))
-        
     }
-
     return (
         <Navbar expand="lg" sticky="top">
             <Navbar.Brand href="#home">iTunes Search</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Form inline>
-                    <FormControl 
+                    <FormControl
                         type="text"
                         placeholder="Artist Name"
                         name="artist"
@@ -54,4 +49,5 @@ const Searchbar = () => {
         </Navbar>
     );
 };
+
 export default Searchbar;

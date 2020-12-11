@@ -4,18 +4,19 @@ import axios from 'axios';
 export function getApi(artistName) {
 
    const apiUrl = `https://itunes.apple.com/search?term=${artistName}&media=music&limit=20&entity=song&attribute=artistTerm`;
+   
    return axios.get(apiUrl)
-              .then(response => response.data)
-              .catch((error) => {throw error})            
+      .then(response => response.data)
+      .catch((error) => { throw error })
 }
 
 function* fetchMusic(action) {
    try {
       const songs = yield call(getApi, action.artistName);
-      
-      yield put({type: 'GET_MUSIC_SUCCESS', songs: songs});
+
+      yield put({ type: 'GET_MUSIC_SUCCESS', songs: songs });
    } catch (e) {
-      yield put({type: 'GET_MUSIC_FAILED', message: e.message});
+      yield put({ type: 'GET_MUSIC_FAILED', message: e.message });
    }
 }
 

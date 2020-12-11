@@ -1,15 +1,15 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { Card } from 'react-bootstrap';
-import {IoIosHeart, IoIosHeartEmpty} from 'react-icons/io'
+import { IoIosHeart, IoIosHeartEmpty } from 'react-icons/io'
 
 const Song = (props) => {
     let isFav = false;
     const check = () => {
         for (let i = 0; i < props.fav.length; i++) {
             if (props.fav[i].trackId === props.song.trackId) {
-                    return isFav = true;
+                return isFav = true;
             } else {
-                    isFav = false;
+                isFav = false;
             }
         }
     }
@@ -22,18 +22,18 @@ const Song = (props) => {
                 <Card.Title>{props.song.trackName}</Card.Title>
                 <Card.Text>
                     {props.song.collectionName}
-            </Card.Text>
-                {isFav ? 
-                <IoIosHeart
-                    onClick={() => props.removeFav(props.song)}
-                    style= {{ color: 'red', height: "25px", width: "25px"}}
-                />
-              :
-                <IoIosHeartEmpty
-                    onClick={() => props.addFav(props.song)}
-                    style= {{ color: 'red' , height: "20px", width: "20px"}}
-                />
-                     }
+                </Card.Text>
+                {isFav ?
+                    <IoIosHeart
+                        onClick={() => props.removeFav(props.song)}
+                        style={{ color: 'red', height: "25px", width: "25px" }}
+                    />
+                    :
+                    <IoIosHeartEmpty
+                        onClick={() => props.addFav(props.song)}
+                        style={{ color: 'red', height: "20px", width: "20px" }}
+                    />
+                }
             </Card.Body>
         </Card>
     );

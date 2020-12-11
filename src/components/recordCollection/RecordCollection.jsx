@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Song from './Song';
 import { CardColumns } from 'react-bootstrap'
 
@@ -37,7 +37,6 @@ const UsersComponent = () => {
 
     useEffect(() => {
         window.localStorage.setItem("favourites", JSON.stringify(fav));
-        console.log(fav)
     }, [fav])
 
     return (
@@ -54,7 +53,7 @@ const UsersComponent = () => {
             }
             {songs.length === 0 && !loading && <div className="no-users mt-4">
                 <h5>Please type your search and click on the API Call button</h5>
-                </div>}
+            </div>}
             {error && !loading && <p>{error}</p>}
         </div>
     );
