@@ -1,14 +1,9 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 
-export function getApi() {
+export function getApi(artistName) {
 
-   console.log()
-   // const { artist } = search;
-
-   // const apiUrl = `https://itunes.apple.com/search?term=${artist}&media=music&entity=song&attribute=artistTerm`;
-   const apiUrl = `https://itunes.apple.com/search?term=wire&media=music&limit=20&entity=song&attribute=artistTerm`;
-   console.log(apiUrl)
+   const apiUrl = `https://itunes.apple.com/search?term=${artistName}&media=music&limit=20&entity=song&attribute=artistTerm`;
    return axios.get(apiUrl)
               .then(response => response.data)
               .catch((error) => {throw error})            
@@ -16,8 +11,8 @@ export function getApi() {
 
 function* fetchMusic(action) {
    try {
-      const songs = yield call(getApi);
-      console.log(songs)
+      const songs = yield call(getApi, action.artistName);
+      
       yield put({type: 'GET_MUSIC_SUCCESS', songs: songs});
    } catch (e) {
       yield put({type: 'GET_MUSIC_FAILED', message: e.message});

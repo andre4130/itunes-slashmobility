@@ -35,9 +35,14 @@ const UsersComponent = () => {
         })
     }
 
+    useEffect(() => {
+        window.localStorage.setItem("favourites", JSON.stringify(fav));
+        console.log(fav)
+    }, [fav])
+
     return (
         <div className="container-fluid">
-            {loading && <p>Loading...</p>}
+            {loading && <div className="no-users">Loading...</div>}
             {songs.length > 0 &&
                 <div className="container-fluid">
                     <CardColumns>
@@ -46,9 +51,10 @@ const UsersComponent = () => {
                         ))}
                     </CardColumns>
                 </div>
-
             }
-            {songs.length === 0 && !loading && <p>No users Available</p>}
+            {songs.length === 0 && !loading && <div className="no-users mt-4">
+                <h5>Please type your search and click on the API Call button</h5>
+                </div>}
             {error && !loading && <p>{error}</p>}
         </div>
     );

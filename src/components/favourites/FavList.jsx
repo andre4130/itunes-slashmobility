@@ -1,23 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import { IoIosHeart } from 'react-icons/io'
 
 const FavList = () => {
 
     const [show, setShow] = useState(false);
+    const [favourites, setFavourites] = useState([])
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    useEffect(() => {
+        var storage = JSON.parse(localStorage.getItem('favourites'));
+        console.log("before set, storage=", storage)
+        setFavourites(storage)
+        console.log("after set, favourites=", favourites, favourites.length)
+    }, [show])
+
+
     return (
         <div>
-            <IoIosHeart style= {{ color: 'red', height: "30px", width: "30px", marginLeft: "10px"}} onClick={handleShow}/>
+            <IoIosHeart style={{ color: 'red', height: "30px", width: "30px", marginLeft: "10px" }} onClick={handleShow} />
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Your Favourites List</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                <Modal.Body>
+                    {!favourites.length
+                        ?
+                        <p>No Favourites added</p>
+                        :
+                        <div>
+                            <ul>
+                            {favourites.map(fav => (
+
+                                <div className="inline"><img src={fav.artworkUrl30} alt={fav.trackName}/> <span><b>{fav.artistName}</b></span> - <span>{fav.trackName}</span><hr/></div>
+                                
+                            ))
+                           }
+                            </ul>
+                        </div>
+                    }
+                </Modal.Body>
             </Modal>
 
         </div >
