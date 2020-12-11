@@ -1,13 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar, FormControl, Form, Button } from 'react-bootstrap';
+import { useSelector, useDispatch } from 'react-redux';
 import {IoIosHeart, IoIosHeartEmpty} from 'react-icons/io'
 
 import { getApi } from '../../redux/sagas/musicSaga';
+import { getMusic } from '../../redux/actions/music';
+import store from '../../redux/store';
 
 //Components
 import FavList from '../favourites/FavList'
 
 const Searchbar = () => {
+
+    const dispatch = useDispatch();
+    
+
+    const handleCall = (artistName) => {
+        dispatch(getMusic(artistName))
+    }
 
     //useState to change the state of the artist
     const [search, setSearch] = useState({
@@ -37,9 +47,9 @@ const Searchbar = () => {
         // if the function does not trigger an error (artist is fullfiled), then setError is false and the function triggers setArtistSearch
         setError(false);
         console.log("in searchInput", search);
-        getApi(search);
     }
 
+    const artistName = "wire"
 
     return (
         <Navbar expand="lg" sticky="top">
@@ -56,6 +66,7 @@ const Searchbar = () => {
                         className="mr-sm-2"
                     />
                     <Button variant="outline-secondary" onClick={(e) => searchInput(e)}>Search</Button>
+                    <Button onClick={() => handleCall(artistName)}>Api Call</Button>
                 </Form>
             </Navbar.Collapse>
             <FavList></FavList>

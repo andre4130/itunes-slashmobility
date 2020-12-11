@@ -1,18 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Song from './Song';
-import { getMusic } from '../../redux/actions/artists';
-import { CardColumns, CardDeck, CardGroup } from 'react-bootstrap'
+import { CardColumns } from 'react-bootstrap'
 
 const UsersComponent = () => {
-    const dispatch = useDispatch();
+
     const songs = useSelector(state => state.songs.songs);
     const loading = useSelector(state => state.songs.loading);
     const error = useSelector(state => state.songs.error);
-
-    useEffect(() => {
-        dispatch(getMusic())
-    }, [])
 
     const [fav, setFav] = useState([])
 
