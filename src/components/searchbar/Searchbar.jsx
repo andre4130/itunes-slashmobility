@@ -21,6 +21,12 @@ const Searchbar = () => {
         })
     };
 
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            dispatch(getMusic(artist));
+        }
+    }
+
     const { artist } = search;
 
     const dispatch = useDispatch();
@@ -41,6 +47,7 @@ const Searchbar = () => {
                         onChange={handleSearch}
                         value={artist}
                         className="mr-sm-2"
+                        onKeyPress={handleKeyPress}
                     />
                     <Button type="button" variant="light" onClick={(e) => handleCall(e)}>Api Call</Button>
                 </Form>

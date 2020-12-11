@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# iTunes API Call for SlashMobility
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This application was created with React and Styled with Bootstrap. 
 
-## Available Scripts
+It fetches from the iTunes API and returns 30 songs of the searched artist.
+Each song Card shows the name of the song, name of the record the song is included at and a small image of the cover record.
+There is also the possibility to add your favourite songs to the a Favourite List, and check which songs you have at your list.
 
-In the project directory, you can run:
+## Requirements for this Technical test:
 
-### `npm start`
+1. Mandatory Libraries: Redux, Redux Saga, Axios
+2. API fetching from the iTunes API.
+3. Navbar with a search feature for artist search
+4. Each item can be marked as favourite and added to the Favourite List.
+5. The Favourites List should have the number of faved songs.
+6. The App should be fully responsive
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Goals not met and points to be improved:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. The favourites list is not stored in the Redux Store. It is stored in the component and local storage, and fetched by the list from the local storage.
+2. When submiting the search, preventDefault is not working and the Enter Key refreshes the web page. The user must submit the search by clicking on the API Call button.
+3. The Styling of the webpage is very basic. I would like to improve the styling of the App but I decided to priorize the JavaScript functions.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Instructions for Installing the Application
 
-### `npm run build`
+1. Clone this repository (Master branch)
+2. Install npm and node (if not yet installed)
+3. Open a Terminal in the project root and execute `npm install`
+4. Execute `npm start` to start the application 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Main Screen
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The main screen is very simple, you just have to search for an artist. Autocomplete is not implemented in this App. The fetching will be sent to the API endpoint via Redux and Saga, and the result will be returned asynchronically. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Main Screen](/src/assets/img/1.jpg)
 
-### `npm run eject`
+## Search Result
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![Search Result](/src/assets/img/2.jpg)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+If fetching from the API endpoints is successful, 30 songs will be shown on the main screen.
+Each song shows the artwork of the record, name of the song, record name and the possibility to add the songs to the favourites list. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Favourites List
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![Fav list](/src/assets/img/3.jpg)
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The list of favourite tracks can be checked each time by clicking on the heart icon at the top right of the screen.

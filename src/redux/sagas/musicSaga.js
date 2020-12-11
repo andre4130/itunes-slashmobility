@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export function getApi(artistName) {
 
-   const apiUrl = `https://itunes.apple.com/search?term=${artistName}&media=music&limit=20&entity=song&attribute=artistTerm`;
+   const apiUrl = `https://itunes.apple.com/search?term=${artistName}&media=music&limit=30&entity=song&attribute=artistTerm`;
    
    return axios.get(apiUrl)
       .then(response => response.data)
